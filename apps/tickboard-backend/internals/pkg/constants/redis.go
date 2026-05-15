@@ -1,5 +1,7 @@
 package constants
 
 const (
-	RedisPrefixRateLimit = "ratelimit:"
+	RedisPrefixRateLimit  = "ratelimit:"
+	RedisPrefixIdempotent = "idempotent:"
+	RedisPrefixSession    = "session:"
 )

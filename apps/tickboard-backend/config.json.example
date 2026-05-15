@@ -1,0 +1,48 @@
+{
+    "app": {
+        "name": "tickboard",
+        "version": "v1",
+        "environment": "production",
+        "debug": true
+    },
+    "logger": {
+        "level": "info",
+        "enable_caller": false,
+        "enable_trace": false
+    },
+    "server": {
+        "host": "localhost",
+        "port": 8080
+    },
+    "postgres": {
+        "host": "localhost",
+        "port": 5432,
+        "user": "postgres",
+        "password": "postgres",
+        "dbname": "tickboard_db",
+        "ssl_mode": "disable",
+        "max_open_conns": 10,
+        "max_idle_conns": 5,
+        "conn_max_lifetime": "1h",
+        "conn_max_idle_time": "1h",
+        "connect_timeout": "30s"
+    },
+    "redis": {
+        "addrs": [
+            "localhost:6379"
+        ],
+        "password": "redis_123",
+        "db": 0,
+        "pool_size": 10,
+        "min_idle_conns": 5,
+        "dial_timeout": "5s",
+        "read_timeout": "3s",
+        "write_timeout": "3s"
+    },
+    "health": {
+        "postgres": true,
+        "redis": true,
+        "grpc": true,
+        "kafka": true
+    }
+}

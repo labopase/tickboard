@@ -23,3 +23,7 @@ s3-output:
 	cd ./infrastructures/terraform/s3 && terraform output
 s3-destroy:
 	cd ./infrastructures/terraform/s3 && terraform destroy
+
+.PHONY: backend-install
+backend-install: 
+	cd ./apps/tickboard-backend && make install

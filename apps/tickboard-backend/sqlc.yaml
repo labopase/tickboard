@@ -1,0 +1,43 @@
+# Docs: https://docs.sqlc.dev/en/stable/reference/config.html
+
+version: "2"
+
+sql:
+  - engine: "postgresql"
+    queries: "database/queries/"
+    schema: "database/migrations/"
+    gen:
+      go:
+        package: "sqlc"
+        out: "db/sqlc"
+        # Use pgx/v5 as the SQL driver — required for pgxpool compatibility.
+        sql_package: "pgx/v5"
+        # Emit JSON tags on generated structs for API serialization.
+        emit_json_tags: true
+        # Do not emit prepared queries — we use pgx's implicit preparation.
+        emit_prepared_queries: false
+        # Emit a Querier interface for mockability in tests.
+        emit_interface: true
+        # Emit exact table name for struct names.
+        emit_exact_table_names: false
+        # Emit empty slices instead of nil for list queries.
+        emit_empty_slices: true
+        # Emit enum types as Go constants.
+        emit_enum_valid_method: true
+        emit_all_enum_values: true
+        # Override types for specific PostgreSQL types.
+        overrides:
+          - db_type: "uuid"
+            go_type:
+              import: "github.com/google/uuid"
+              type: "UUID"
+          - db_type: "timestamptz"
+            go_type:
+              import: "time"
+              type: "Time"
+          - db_type: "jsonb"
+            go_type:
+              import: "encoding/json"
+              type: "RawMessage"
+          - db_type: "inet"
+            go_type: "string"
