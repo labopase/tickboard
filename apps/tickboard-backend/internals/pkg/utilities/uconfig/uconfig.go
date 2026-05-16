@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	DefaultConfigPath = "./"
+	DefaultConfigPath = "./configs"
 	DefaultConfigName = "config"
 )
 
