@@ -6,6 +6,7 @@ import (
 	"github.com/halimdotnet/tickboard-backend/internals/pkg/config"
 	"github.com/halimdotnet/tickboard-backend/internals/pkg/httpx"
 	"github.com/halimdotnet/tickboard-backend/internals/pkg/logger"
+	"github.com/halimdotnet/tickboard-backend/internals/pkg/pgsql"
 	rds "github.com/halimdotnet/tickboard-backend/internals/pkg/redis"
 	"go.uber.org/fx"
 )
@@ -23,6 +24,7 @@ func (a *App) Run() {
 		fx.Options(
 			config.Module,
 			logger.Module,
+			pgsql.Module,
 			rds.Module,
 			httpx.Module,
 		),
