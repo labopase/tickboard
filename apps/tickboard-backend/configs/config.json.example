@@ -42,7 +42,7 @@
     "health": {
         "postgres": true,
         "redis": true,
-        "grpc": true,
-        "kafka": true
+        "grpc": false,
+        "kafka": false
     }
 }
