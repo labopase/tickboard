@@ -19,6 +19,7 @@ func NewApp() application.Application {
 			pgsql.Module,
 			rds.Module,
 			httpx.Module,
-		).WithOptions(user.Module).
-		Build()
+		).WithOptions(
+		user.Module,
+	).Build()
 }
