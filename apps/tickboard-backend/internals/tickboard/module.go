@@ -7,6 +7,7 @@ import (
 	"github.com/halimdotnet/tickboard-backend/internals/pkg/logger"
 	"github.com/halimdotnet/tickboard-backend/internals/pkg/pgsql"
 	rds "github.com/halimdotnet/tickboard-backend/internals/pkg/redis"
+	"github.com/halimdotnet/tickboard-backend/internals/tickboard/products/users/user"
 )
 
 // NewApp creates and configures the main application.
@@ -18,6 +19,6 @@ func NewApp() application.Application {
 			pgsql.Module,
 			rds.Module,
 			httpx.Module,
-		).
+		).WithOptions(user.Module).
 		Build()
 }
